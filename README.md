@@ -2,6 +2,7 @@
 
 # Requesting Data
 If data is received it is decoded and read. Then it is adjusted to the new weight and reps via the microservice and sent back.
+Example Call: (135lbs for 10 reps)
 ```python
 import socket
 
@@ -15,7 +16,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 
 print(f"Received {data!r}")
 ```
-Example Call: 
 
 # Receiving Data
 The microservice receives the response, adjusts the values, and sends back a response.
