@@ -3,11 +3,17 @@
 # Requesting Data
 If data is received it is decoded and read. Then it is adjusted to the new weight and reps via the microservice and sent back.
 ```python
-while True:
-    rec = sock.recv(1024).decode("utf-8")
-    if rec == '':
-        # sc, addr = s.accept()
-        break
+import socket
+
+HOST = "127.0.0.1"  # The server's hostname or IP address
+PORT = 65432  # The port used by the server
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.connect((HOST, PORT))
+    s.sendall(b"135, 10")
+    data = s.recv(1024)
+
+print(f"Received {data!r}")
 ```
 Example Call: 
 
