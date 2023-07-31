@@ -3,15 +3,6 @@
 # Requesting Data
 If data is received it is decoded and read. Then it is adjusted to the new weight and reps via the microservice and sent back.
 ```python
-import socket
-
-active_socket = socket.socket()
-active_socket.bind(("0.0.0.0", 60))
-active_socket.listen(1)  # clients permitted connect
-print("server activated...")
-
-sock, addr = active_socket.accept()
-
 while True:
     rec = sock.recv(1024).decode("utf-8")
     if rec == '':
@@ -25,11 +16,6 @@ while True:
         response = (str(new_weight) + " " + str(new_reps)).encode("utf-8")
 
         sock.send(response)
-
-print("closing server...")
-
-sock.close()
-active_socket.close()
 ```
 
 # Receiving Data
