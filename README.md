@@ -11,8 +11,7 @@ while True:
 ```
 
 # Receiving Data
-- While the program is sleeping after sending the log list, the microservice responds by writing the number of values back to count.txt
-- Then the rest of the code is executed: 
+The microservice receives the response, adjusts the values, and sends back a response.
 ```python
 print(f"Received {rec!r}")
         rec = rec.split(" ")
