@@ -9,6 +9,7 @@ while True:
         # sc, addr = s.accept()
         break
 ```
+Example Call: 
 
 # Receiving Data
 The microservice receives the response, adjusts the values, and sends back a response.
@@ -18,10 +19,9 @@ print(f"Received {rec!r}")
         new_weight = int(rec[0]) * 1.05
         new_reps = int(rec[1]) - 2
         response = (str(new_weight) + " " + str(new_reps)).encode("utf-8")
-
         sock.send(response)
 ```
-
+Example Call: 
 
 # UML Sequence Diagram
 [UML Diagram.pdf](https://github.com/KyleFree33/361Microservice/files/12221935/UML.Diagram.pdf)
