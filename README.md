@@ -2,7 +2,7 @@
 
 # Requesting Data
 If data is received it is decoded and read. Then it is adjusted to the new weight and reps via the microservice and sent back.
-Example Call: (135lbs for 10 reps)
+Example Call Request: (135lbs for 10 reps)
 ```python
 import socket
 
@@ -19,6 +19,7 @@ print(f"Received {data!r}")
 
 # Receiving Data
 The microservice receives the response, adjusts the values, and sends back a response.
+Example Call Receive: (Returns 142.5 for 8 reps)
 ```python
 print(f"Received {rec!r}")
         rec = rec.split(" ")
@@ -27,7 +28,6 @@ print(f"Received {rec!r}")
         response = (str(new_weight) + " " + str(new_reps)).encode("utf-8")
         sock.send(response)
 ```
-Example Call: 
 
 # UML Sequence Diagram
 [UML Diagram.pdf](https://github.com/KyleFree33/361Microservice/files/12221935/UML.Diagram.pdf)
